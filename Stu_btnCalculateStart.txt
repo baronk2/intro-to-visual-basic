@@ -1,0 +1,62 @@
+    Private Sub btnCalculate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        'Calculate and display membership fees
+        'Constants declaration
+        Const DISCOUNT_4_TO_6 As Decimal = 0.05D    '4 to 6 months
+        Const DISCOUNT_7_TO_9 As Decimal = 0.08D    '7 to 9 months
+        Const DISCOUNT_10_OR_MORE As Decimal = 0.1D '10 or more months
+        Const ADULT_FEE As Decimal = 40             'Adult base monthly fee
+        Const CHILD_FEE As Decimal = 20             'Child base monthly fee
+        Const STUDENT_FEE As Decimal = 25           'Student base monthly fee
+        Const SENIOR_FEE As Decimal = 30            'Senior base monthly fee
+        Const YOGA As Decimal = 10                  'Yoga monthly fee
+        Const KARATE As Decimal = 30                'Karate monthly fee
+        Const TRAINER As Decimal = 50               'Personal Trainer monthly fee
+        'Const MAX_MONTHS As Byte = 24               'Maximum number of months to sign up
+
+        'Declare local variables
+        Dim intMonths As Integer        'Number of months
+        Dim decBaseFee As Decimal       'Base Monthly fee
+        Dim decDiscount As Decimal      'Discount
+        Dim decTotalFee As Decimal      'Total Membership Fee
+
+        'Input
+        intMonths = Convert.ToInt32(updMonths.Value)
+
+        '  1)
+   '''@@@@@@@@@@@@@@@@@ Add Code Here  @@@@@@@@@@@@@@@@@@@@@@@
+
+        '  2)
+      
+ '''@@@@@@@@@@@@@@@@@ Add Code Here  @@@@@@@@@@@@@@@@@@@@@@@
+
+
+        '  3)
+       
+
+ '''@@@@@@@@@@@@@@@@@ Add Code Here  @@@@@@@@@@@@@@@@@@@@@@@
+
+
+        '  4)
+
+ '''@@@@@@@@@@@@@@@@@ Add Code Here  @@@@@@@@@@@@@@@@@@@@@@@  
+
+
+
+        '  5)
+       
+
+ '''@@@@@@@@@@@@@@@@@ Add Code Here  @@@@@@@@@@@@@@@@@@@@@@@
+
+
+        '  6)
+ 
+
+ '''@@@@@@@@@@@@@@@@@ Add Code Here  @@@@@@@@@@@@@@@@@@@@@@@
+
+        '  7)
+       
+
+ '''@@@@@@@@@@@@@@@@@ Add Code Here  @@@@@@@@@@@@@@@@@@@@@@@
+
+
+           End Sub

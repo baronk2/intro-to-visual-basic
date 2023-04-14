@@ -1,0 +1,26 @@
+'Synch Menu and Radio Boxes
+
+    Private Sub mnuMembershipAdult_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuMembershipAdult.Click
+        'Menu Adult membership selected
+        If mnuMembershipAdult.Checked Then
+            'mnuMembershipAdult.Checked = False
+            radAdult.Checked = False
+        Else
+            mnuMembershipAdult.Checked = True
+            mnuMembershipChild.Checked = False
+            mnuMembershipStudent.Checked = False
+            mnuMembershipSenior.Checked = False
+            radAdult.Checked = True
+        End If
+        btnCalculate_Click(sender, e)
+    End Sub
+
+    Private Sub radAdult_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles radAdult.Click
+        'Call btnCalculate_Click event procedure
+        mnuMembershipAdult.Checked = True
+        mnuMembershipChild.Checked = False
+        mnuMembershipStudent.Checked = False
+        mnuMembershipSenior.Checked = False
+        btnCalculate_Click(sender, e)
+    End Sub
+

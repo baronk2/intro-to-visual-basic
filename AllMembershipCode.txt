@@ -1,0 +1,60 @@
+    Private Sub btnCalculate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalculate.Click
+        ' Declare local variables.
+        Dim decBaseFee As Decimal   ' Base Monthly Fee
+        Dim decTotalFee As Decimal  ' Total Membership Fee
+        Dim intMonths As Integer    ' Number of months
+
+        ' Constants for base fees
+        Const decADULT_FEE As Decimal = 40D
+        Const decCHILD_FEE As Decimal = 20D
+        Const decSTUDENT_FEE As Decimal = 25D
+        Const decSENIOR_FEE As Decimal = 30D
+
+        ' Constants for additional fees
+        Const decYOGA_FEE As Decimal = 10D
+        Const decKARATE_FEE As Decimal = 30D
+        Const decTRAINER_FEE As Decimal = 50D
+
+        ' Get the number of months.
+        If Integer.TryParse(txtMonths.Text, intMonths) Then
+            ' Validate the number of months.
+            If intMonths >= 1 And intMonths <= 24 Then
+                ' Determine the base monthly fee.
+                If radAdult.Checked = True Then
+                    decBaseFee = decADULT_FEE
+                ElseIf radChild.Checked = True Then
+                    decBaseFee = decCHILD_FEE
+                ElseIf radStudent.Checked = True Then
+                    decBaseFee = decSTUDENT_FEE
+                ElseIf radSenior.Checked = True Then
+                    decBaseFee = decSENIOR_FEE
+                End If
+
+                ' Look for additional services.
+                If chkYoga.Checked = True Then
+                    decBaseFee += decYOGA_FEE
+                End If
+
+                If chkKarate.Checked = True Then
+                    decBaseFee += decKARATE_FEE
+                End If
+
+                If chkTrainer.Checked = True Then
+                    decBaseFee += decTRAINER_FEE
+                End If
+
+                ' Calculate the total fee.
+                decTotalFee = decBaseFee * intMonths
+
+                ' Display the fees.
+                lblMonthlyFee.Text = decBaseFee.ToString("c")
+                lblTotalFee.Text = decTotalFee.ToString("c")
+            Else
+                ' Error: Months is outside the range 1-24.
+                MessageBox.Show("Months must be in the range 1 - 24.")
+            End If
+        Else
+            ' Error: value entered for months is not an integer.
+            MessageBox.Show("Months must be an integer.")
+        End If
+    End Sub

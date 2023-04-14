@@ -1,0 +1,75 @@
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Comments by the prof:
+'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Lab #1--Summer
+'Created by Niko Culevski
+'Class: CS 115
+'Date: 9/23/2009
+'Project Name:  Summer Travels
+'Hours to Complete: 1 hour 25 minutes
+'Platform: PC, VB.NET 2003, Windows XP
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Write a VB program to simulate slide viewer showing photos from your summer
+'travels. 
+'
+'Required input: None
+'Output: Photographs from summer vacation with navigational buttons
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+'Comments by the student:
+'
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Option Explicit On
+Option Strict On
+
+Public Class frmSummer
+    Const MAX_COUNTER As Integer = 6   'maximum number of photos
+    Dim intCounter As Integer = 0       'counter for photos
+    Private Sub btnFirst_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFirst.Click
+        'Show first photo
+        intCounter = 0 'set photo counter to 0
+        'Load photo file from bin/Debug/Images folder
+        picPhoto.Image = Image.FromFile("Images/mount" + CStr(intCounter) + ".jpg")
+        intCounter = (intCounter + 1)                   ' increment by one for zero element
+        lblSlideNumber.Text = (intCounter.ToString)     ' display current value
+        intCounter = (intCounter - 1)                   ' reset after display
+    End Sub
+
+
+
+
+    Private Sub btnNext_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNext.Click
+        'Show next photo
+        intCounter = (intCounter + 1) Mod MAX_COUNTER 'increase photo counter but only within MAX pictures
+        'Load photo file from bin folder
+        picPhoto.Image = Image.FromFile("Images/mount" + CStr(intCounter) + ".jpg")
+        intCounter = (intCounter + 1)
+        lblSlideNumber.Text = (intCounter.ToString)
+        intCounter = (intCounter - 1)
+    End Sub
+
+    Private Sub btnPrevious_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrevious.Click
+        'Show previous photo
+        If intCounter = 0 Then
+            intCounter = MAX_COUNTER - 1 'set photo counter to last picture
+        Else
+            intCounter = (intCounter - 1) 'decrease photo counter
+        End If
+        'Load photo file from bin folder
+        picPhoto.Image = Image.FromFile("Images/mount" + CStr(intCounter) + ".jpg")
+        intCounter = (intCounter + 1)
+        lblSlideNumber.Text = (intCounter.ToString)
+        intCounter = (intCounter - 1)
+    End Sub
+
+    Private Sub btnLast_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLast.Click
+        'Show next photo
+        intCounter = MAX_COUNTER - 1 'set photo counter to last picture
+        'Load photo file from bin folder
+        picPhoto.Image = Image.FromFile("Images/mount" + CStr(intCounter) + ".jpg")
+        intCounter = (intCounter + 1)
+        lblSlideNumber.Text = (intCounter.ToString)
+        intCounter = (intCounter - 1)
+    End Sub
+End Class

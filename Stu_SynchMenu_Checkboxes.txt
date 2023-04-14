@@ -1,0 +1,16 @@
+'Synch Menu and Check Boxes   
+
+
+Private Sub mnuOptionYoga_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuOptionYoga.Click
+        'Menu Yoga selected
+        If chkYoga.Checked Then
+            chkYoga.Checked = False             'synchronize with check box
+            mnuOptionYoga.Checked = False
+        Else
+            chkYoga.Checked = True              'synchronize with check box
+            mnuOptionYoga.Checked = True
+        End If
+        btnCalculate_Click(sender, e)
+    End Sub
+
+ 
